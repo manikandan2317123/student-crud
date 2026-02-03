@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #e0f7fa, #fce4ec);
+            padding: 40px;
+        }
+
+        .delete-container {
+            width: 420px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h2 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #444;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .btn-delete {
+            padding: 12px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-cancel {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 12px 20px;
+            background-color: #9e9e9e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .btn-cancel:hover {
+            background-color: #757575;
+        }
+    </style>
+</head>
+<body>
+
+<div class="delete-container">
+    <h2>Are you sure?</h2>
+    <p>You are about to delete this student record. This action cannot be undone.</p>
+
+    <form method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">Yes, Delete</button>
+    </form>
+
+    <a href="{% url 'student_list' %}" class="btn-cancel">Cancel</a>
+</div>
+
+</body>
+</html>
